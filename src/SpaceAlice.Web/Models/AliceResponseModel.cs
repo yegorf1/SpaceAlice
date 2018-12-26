@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 namespace SpaceAlice.Web.Models {
     public class AliceResponseModel {
         [JsonProperty("response")]
-        public ResponseBodyModel Response { get; set; }
+        public ResponseBodyModel Body { get; set; }
 
         [JsonProperty("session")]
         public SessionModel Session { get; set; }
