@@ -24,4 +24,8 @@
       <Folder Include="wwwroot" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\SpaceAlice.Core\SpaceAlice.Core.csproj" />
+    </ItemGroup>
+
 </Project>

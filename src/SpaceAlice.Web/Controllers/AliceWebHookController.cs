@@ -3,15 +3,13 @@ using SpaceAlice.Web.Models;
 
 namespace SpaceAlice.Web.Controllers {
     public class AliceWebHookController : Controller {
+        private readonly IAliceMessageProcessor _messageProcessor;
+
+        public AliceWebHookController(IAliceMessageProcessor messageProcessor) {
+            _messageProcessor = messageProcessor;
+        }
+
         [HttpPost("/alice")]
-        public AliceResponseModel WebHook([FromBody] AliceRequestModel req) =>
-            new AliceResponseModel {
-                Body = new ResponseBodyModel {
-                    Text = "Hello",
-                    Tts = "Hello",
-                    EndSession = false
-                },
-                Session = req.Session
-            };
+        public AliceResponseModel WebHook([FromBody] AliceRequestModel req) => _messageProcessor.Process(req);
     }
 }

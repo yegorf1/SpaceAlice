@@ -13,6 +13,7 @@ namespace SpaceAlice.Web {
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services) {
+            services.AddSingleton<IAliceMessageProcessor, SynchronousAliceMessageProcessor>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
