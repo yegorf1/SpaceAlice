@@ -17,6 +17,7 @@ namespace SpaceAlice.Core {
         /// <param name="message">Incoming message.</param>
         /// <returns>Answer to message with text.</returns>
         public async Task<CoreAnswer> ProcessMessage(IncomingMessage message) {
+            // ReSharper disable once InconsistentlySynchronizedField
             User user = await _dataRepository.Users.GetUserById(message.Session.UserId);
 
             // TODO: if race state is entered another user object will be outdated. Creation of user AFTER lock will fix it.
