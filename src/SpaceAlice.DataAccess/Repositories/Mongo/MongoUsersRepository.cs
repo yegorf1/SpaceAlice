@@ -19,8 +19,13 @@ namespace SpaceAlice.DataAccess.Repositories.Mongo {
             return await _users.Find(CreateIdFilter(id)).FirstOrDefaultAsync() ?? new User {Id = id};
         }
 
-        private static FilterDefinition<User> CreateIdFilter(string id) {
-            return new FilterDefinitionBuilder<User>().Eq(u => u.Id, id);
-        }
+        public void Update(User user) =>
+            _users.FindOneAndReplace(CreateIdFilter(user.Id), user,
+                new FindOneAndReplaceOptions<User> {
+                    IsUpsert = true
+                });
+
+        private static FilterDefinition<User> CreateIdFilter(string id) => 
+            new FilterDefinitionBuilder<User>().Eq(u => u.Id, id);
     }
 }

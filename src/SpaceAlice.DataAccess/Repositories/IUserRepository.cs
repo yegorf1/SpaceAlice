@@ -4,5 +4,6 @@ using SpaceAlice.DataAccess.Entities;
 namespace SpaceAlice.DataAccess.Repositories {
     public interface IUserRepository {
         Task<User> GetUserById(string id);
+        void Update(User user);
     }
 }
