@@ -23,6 +23,7 @@ namespace SpaceAlice.Core {
             lock (user.GetLock()) {
                 CoreAnswer answer = message.CreateAnswer($"User id: {user.Id}");
 
+                // TODO: Make it async somehow.
                 _dataRepository.Users.Update(user);
 
                 return answer;
