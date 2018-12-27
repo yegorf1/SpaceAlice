@@ -21,7 +21,11 @@ namespace SpaceAlice.Core {
 
             // TODO: if race state is entered another user object will be outdated. Creation if user AFTER lock will fix it.
             lock (user.GetLock()) {
-                return message.CreateAnswer($"User id: {user.Id}");
+                CoreAnswer answer = message.CreateAnswer($"User id: {user.Id}");
+
+                _dataRepository.Users.Update(user);
+
+                return answer;
             }
         }
     }
