@@ -19,7 +19,7 @@ namespace SpaceAlice.Core {
         public async Task<CoreAnswer> ProcessMessage(IncomingMessage message) {
             User user = await _dataRepository.Users.GetUserById(message.Session.UserId);
 
-            // TODO: if race state is entered another user object will be outdated. Creation if user AFTER lock will fix it.
+            // TODO: if race state is entered another user object will be outdated. Creation of user AFTER lock will fix it.
             lock (user.GetLock()) {
                 CoreAnswer answer = message.CreateAnswer($"User id: {user.Id}");
 
