@@ -5,10 +5,10 @@ using SpaceAlice.Core.Exceptions;
 
 namespace SpaceAlice.Core.States {
     public class StateMachine {
-        private readonly Dictionary<string, IState> States;
+        private readonly Dictionary<string, IState> _states;
         
         public StateMachine() {
-            States = new Dictionary<string, IState>();
+            _states = new Dictionary<string, IState>();
             
             LookForStates();
         }
@@ -33,9 +33,9 @@ namespace SpaceAlice.Core.States {
                 throw new StateMachineException($"State with name '{instance.Name}' already exists.");
             }
 
-            States.Add(instance.Name, instance);
+            _states.Add(instance.Name, instance);
         }
 
-        private bool ContainsState(string instanceName) => States.ContainsKey(instanceName);
+        private bool ContainsState(string instanceName) => _states.ContainsKey(instanceName);
     }
 }
