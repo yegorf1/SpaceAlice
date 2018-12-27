@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SpaceAlice.Core.Exceptions;
-using SpaceAlice.Core.States;
 
-namespace SpaceAlice.Core {
+namespace SpaceAlice.Core.States {
     public class StateMachine {
         private readonly Dictionary<string, IState> States;
         
