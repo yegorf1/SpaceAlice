@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SpaceAlice.Web.Models;
 
@@ -10,6 +11,6 @@ namespace SpaceAlice.Web.Controllers {
         }
 
         [HttpPost("/alice")]
-        public AliceResponseModel WebHook([FromBody] AliceRequestModel req) => _messageProcessor.Process(req);
+        public async Task<AliceResponseModel> WebHookAsync([FromBody] AliceRequestModel req) => await _messageProcessor.Process(req);
     }
 }

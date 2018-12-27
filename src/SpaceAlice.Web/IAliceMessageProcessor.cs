@@ -1,7 +1,8 @@
+using System.Threading.Tasks;
 using SpaceAlice.Web.Models;
 
 namespace SpaceAlice.Web {
     public interface IAliceMessageProcessor {
-        AliceResponseModel Process(AliceRequestModel request);
+        Task<AliceResponseModel> Process(AliceRequestModel request);
     }
 }
