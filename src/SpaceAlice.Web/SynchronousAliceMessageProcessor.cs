@@ -1,7 +1,7 @@
-using System.Net.Mime;
 using Microsoft.Extensions.Logging;
+
 using SpaceAlice.Core;
-using SpaceAlice.Core.Entities;
+using SpaceAlice.DataAccess.Entities;
 using SpaceAlice.Web.Models;
 
 namespace SpaceAlice.Web {

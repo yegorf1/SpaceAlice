@@ -1,4 +1,4 @@
-using SpaceAlice.Core.Entities;
+using SpaceAlice.DataAccess.Entities ;
 
 namespace SpaceAlice.Core {
     public class MessageProcessor {

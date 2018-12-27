@@ -1,3 +1,3 @@
-namespace SpaceAlice.Core.Entities {
+namespace SpaceAlice.DataAccess.Entities {
     public class IncomingMessage : Message { }
 }
