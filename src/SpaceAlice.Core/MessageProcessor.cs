@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using SpaceAlice.DataAccess.Entities ;
 using SpaceAlice.DataAccess.Repositories;
@@ -7,7 +8,7 @@ namespace SpaceAlice.Core {
         private readonly IDataRepository _dataRepository;
 
         public MessageProcessor(IDataRepository dataRepository) {
-            _dataRepository = dataRepository;
+            _dataRepository = dataRepository ?? throw new ArgumentNullException(nameof(dataRepository));
         }
         
         /// <summary>
